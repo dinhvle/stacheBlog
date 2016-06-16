@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Create Users</title>
+  <!-- Compiled and minified CSS -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.6/css/materialize.min.css">
+</head>
+<body>
+  <div class="container">
+  <h3>Add a new user!</h3>
+  <form action="/users" method="POST">
+    <label for="fullname">Full Name:</label>
+    <input type="text" name="user[full_name]" autofocus="autofocus" required="required" >
+
+    <label for="username">Username:</label>
+    <input type="text" name="user[username]" autofocus="autofocus" required="required">
+
+    <label for="imageurl">Image URL:</label>
+    <input type="text" name="user[img_url]" autofocus="autofocus">
+
+    <input type="submit" value="submit" class="btn btn-primary">
+  </form>
+</div>
+  <script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
+  <!-- Compiled and minified JavaScript -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.6/js/materialize.min.js"></script>
+</body>
+</html>
