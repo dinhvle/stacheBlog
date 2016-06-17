@@ -37,27 +37,29 @@ router.post('/', (req,res) => {
 // // Read, fetch a single post by id
 router.get('/:id', (req,res) => {
   Post.forge({id: req.params.id}).fetch().then((post) => {
-    // res.render('users/show', {user: user.toJSON()})
+    // res.render('posts/show', {post: post.toJSON()})
     res.send(post.toJSON());
   })
 })
-//
-// // Get edit page to update a user
-// router.get('/:id/edit', (req,res) => {
-//   User.forge({id: req.params.id}).fetch().then((user) => {
-//     res.render('users/edit', {user: user.toJSON()});
-//   })
-// })
-//
-// // Upsate a user
-// router.put('/:id', (req,res) => {
-//   User.forge({id: req.params.id}).fetch().then((user) => {
-//     user.save(req.body.user).then(() => {
-//       res.redirect('/users');
-//     })
-//   })
-// })
-//
+
+// Get edit page to update a post
+router.get('/:id/edit', (req,res) => {
+  Post.forge({id: req.params.id}).fetch().then((post) => {
+    res.render('posts/edit', {post: post.toJSON()});
+  })
+})
+
+// Update a post
+router.put('/:id', (req,res) => {
+  var user_id = req.params.user_id;
+
+  Post.forge({id: req.params.id}).fetch().then((post) => {
+    post.save(req.body.user).then(() => {
+      res.redirect('/users/' + user_id + '/posts');
+    })
+  })
+})
+
 // // Destroy a user
 // router.delete('/:id', (req,res) => {
 //   User.forge({id: req.params.id}).fetch().then((user) => {

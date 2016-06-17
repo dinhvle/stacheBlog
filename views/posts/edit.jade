@@ -1,0 +1,8 @@
+extends ../layout.jade
+
+block content
+  h1 Edit a post
+  form(action="/users/#{post.user_id}/posts/#{post.id}?_method=PUT", method="POST")
+    input(type="text" name="post[title]" value="#{post.title}")
+    textarea.materialize-textarea(id="pbody" name="post[pbody]") #{post.pbody}
+    input(type="submit" value="Submit")
