@@ -4,9 +4,7 @@ var User = require('./user.js');
 var Post = bookshelf.Model.extend({
   tableName: 'posts',
 
-  hasTimestamps: true,
-
-  author: function() {
+  user: function() {
     return this.belongsTo(User);
   }
 });

@@ -18,7 +18,6 @@ router.get('/new', (req,res) => {
 })
 
 router.post('/', (req,res) => {
-  eval(locus);
   User.forge(req.body.user).save().then((user) => {
     res.redirect('/users');
   })

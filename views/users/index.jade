@@ -20,5 +20,6 @@ block content
             a(href="/users/#{user.id}/edit") Edit
           td
             form(action="/users/#{user.id}?_method=DELETE" method="POST")
-              input(type="submit" value="delete" class="waves-effect waves-light btn red")
+              button.waves-effect.waves-light.btn.red(type="submit")
+                i.material-icons delete
     tfoot

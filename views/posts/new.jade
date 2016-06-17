@@ -1,0 +1,16 @@
+extends ../layout
+
+block content
+  h1 Add a new post
+  form(action="/users/#{id}/posts", method="POST")
+    div.input-field
+      input(id="title" type="text" name="post[title]")
+      label(for="title") Title
+    div.input-field
+      textarea.materialize-textarea(id="pbody" name="post[pbody]")
+      label(for="pbody") Body
+    div.input-field
+      input(id="user_id" type="text" name="post[user_id]")
+      label(for="user_id") User
+    div.row
+      input(class="btn btn-primary" type="submit" value="Submit")
