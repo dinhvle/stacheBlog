@@ -1,0 +1,16 @@
+extends ../layout
+
+block content
+  h1 Add a new user
+  form(action="/users", method="POST")
+    div.input-field
+      input(id="full_name" type="text" name="user[full_name]")
+      label(for="full_name") Name
+    div.input-field
+      input(id="username" type="text" name="user[username]")
+      label(for="username") Username
+    div.input-field
+      input(id="img_url" type="text" name="user[img_url]")
+      label(for="img_url") Image URL
+    div.row
+      input(class="btn btn-primary" type="submit" value="Submit")

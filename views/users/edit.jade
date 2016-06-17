@@ -1,0 +1,9 @@
+extends ../layout
+
+block content
+  h1 Edit a user
+  form(action="/users/#{user.id}?_method=PUT", method="POST")
+    input(type="text" name="user[full_name]" value="#{user.full_name}")
+    input(type="text" name="user[username]" value="#{user.username}")
+    input(type="text" name="user[img_url]" value="#{user.img_url}")
+    input(type="submit" value="Submit")
