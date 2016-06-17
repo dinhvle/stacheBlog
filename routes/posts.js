@@ -21,18 +21,26 @@ router.get('/new', (req,res) => {
 })
 
 router.post('/', (req,res) => {
-  Post.forge(req.body.post).save().then((post) => {
+  var title = req.body.post.title;
+  var body = req.body.post.pbody;
+  var user_id = req.params.user_id;
+
+  Post.forge({
+    title: title,
+    pbody: body,
+    user_id: user_id
+  }).save().then((post) => {
     res.redirect('/users/' + user_id + '/posts');
   })
 })
 //
-// // Read, fetch a single user by id
-// router.get('/:id', (req,res) => {
-//   User.forge({id: req.params.id}).fetch().then((user««»») => {
-//     // res.render('users/show', {user: user.toJSON()})
-//     res.send(user.toJSON());
-//   })
-// })
+// // Read, fetch a single post by id
+router.get('/:id', (req,res) => {
+  Post.forge({id: req.params.id}).fetch().then((post) => {
+    // res.render('users/show', {user: user.toJSON()})
+    res.send(post.toJSON());
+  })
+})
 //
 // // Get edit page to update a user
 // router.get('/:id/edit', (req,res) => {
