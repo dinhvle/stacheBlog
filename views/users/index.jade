@@ -7,6 +7,7 @@ block content
     thead
       th ID
       th Name
+      th Image
       th Username
       th Edit User
       th Delete User
@@ -15,6 +16,8 @@ block content
         tr
           td #{user.id}
           td #{user.full_name}
+          td
+            img(src="#{user.img_url}")
           td #{user.username}
           td
             a(href="/users/#{user.id}/edit") Edit

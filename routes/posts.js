@@ -61,12 +61,14 @@ router.put('/:id', (req,res) => {
 })
 
 // // Destroy a user
-// router.delete('/:id', (req,res) => {
-//   User.forge({id: req.params.id}).fetch().then((user) => {
-//     user.destroy().then(() => {
-//       res.redirect('/users');
-//     })
-//   })
-// })
+router.delete('/:id', (req,res) => {
+  var user_id = req.params.user_id;
+
+  Post.forge({id: req.params.id}).fetch().then((post) => {
+    post.destroy().then(() => {
+      res.redirect('/users/' + user_id + '/books');
+    })
+  })
+})
 
 module.exports = router;
