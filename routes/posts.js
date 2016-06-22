@@ -8,7 +8,8 @@ require('locus');
 
 // Index, fetch all users
 router.get('/', (req,res) => {
-  Post.forge().fetchAll().then((collection) => {
+  var id = req.params.user_id;
+  Post.where({user_id: id}).fetchAll().then((collection) => {
     res.send(collection.toJSON());
     // res.render('users/index', {title: 'stacheBlog Users', users: collection.toJSON()});
   })

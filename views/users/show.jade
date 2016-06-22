@@ -1,0 +1,12 @@
+extends ../layout.jade
+
+block content
+  h1 Show
+  div.row
+    div.col.s12.m7
+      div.card
+        div.card-image
+          img(src="#{user.img_url}")
+          span.card-title #{user.full_name)
+        div.card-action
+          a(href="/users/#{user.id}/posts") Posts

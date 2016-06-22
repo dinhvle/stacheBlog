@@ -26,8 +26,8 @@ router.post('/', (req,res) => {
 // Read, fetch a single user by id
 router.get('/:id', (req,res) => {
   User.forge({id: req.params.id}).fetch().then((user) => {
-    // res.render('users/show', {user: user.toJSON()})
-    res.send(user.toJSON());
+    res.render('users/show', {user: user.toJSON()});
+    // res.send(user.toJSON());
   })
 })
 
